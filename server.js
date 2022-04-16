@@ -47,28 +47,25 @@ const requestLisener = async(req, res) => {
   } else if (req.url.startsWith("/posts/") && req.method === 'DELETE') {
     const id = req.url.split("/").pop();
     if (id) {
-      await Posts.deleteOne({"_id": ObjectId(id)});
+      await Posts.findByIdAndDelete(id);
       res.writeHead(200, headers);
       successHandle(res, id);
     } else {
       errorHandle(res);
     }
-  } else if (req.url.startsWith("/todos/") && req.method === 'PATCH') {
+  } else if (req.url.startsWith("/posts/") && req.method === 'PATCH') {
     req.on('end', async () => {
       try {
         const data = JSON.parse(body);
         const id = req.url.split("/").pop();
         if (data.content) {
-          const editedPost = await Posts.updateOne(
-            {"_id": ObjectId(id)},
-            data
-          );
+          const editedPost = await Posts.findByIdAndUpdate(id, data)
           successHandle(res, editedPost);
         } else {
           errorHandle(res);
         }
       } catch (err) {
-        errorHandle(res);
+        errorHandle(res, err);
       }
     })
   } else if (req.method === 'OPTIONS') {
