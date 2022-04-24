@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "54d2c9ad-3ea5-437f-9eb3-cbecbe2dd708",
+		"name": "todolist - mongoose - heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "取得所有貼文",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://todolist-api-mongoose.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"todolist-api-mongoose",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增單筆貼文",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"John Doe\",\n    \"tags\": [\"article\"],\n    \"type\": \"group\",\n    \"image\": null,\n    \"content\": \"My first post!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://todolist-api-mongoose.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"todolist-api-mongoose",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除全部貼文",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://todolist-api-mongoose.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"todolist-api-mongoose",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除單筆貼文",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://todolist-api-mongoose.herokuapp.com/posts/6264e1f17777b18b0365fa75",
+					"protocol": "https",
+					"host": [
+						"todolist-api-mongoose",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts",
+						"6264e1f17777b18b0365fa75"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "編輯單筆貼文",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"John Doe\",\n    \"tags\": [\"article\"],\n    \"type\": \"group\",\n    \"image\": null,\n    \"content\": \"My edited post!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://todolist-api-mongoose.herokuapp.com/posts/6264f9a00bc2aa1a4c3e425a",
+					"protocol": "https",
+					"host": [
+						"todolist-api-mongoose",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts",
+						"6264f9a00bc2aa1a4c3e425a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
