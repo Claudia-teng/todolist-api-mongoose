@@ -31,7 +31,8 @@ const requestListener = async(req, res) => {
             name: data.name,
             content: data.content,
             tags: data.tags,
-            type: data.type
+            type: data.type,
+            image: data.image
           })
           successHandle(res, newPost);
         } else {
@@ -48,7 +49,6 @@ const requestListener = async(req, res) => {
     const id = req.url.split("/").pop();
     if (id) {
       await Posts.findByIdAndDelete(id);
-      res.writeHead(200, headers);
       successHandle(res, id);
     } else {
       errorHandle(res);
@@ -59,7 +59,13 @@ const requestListener = async(req, res) => {
         const data = JSON.parse(body);
         const id = req.url.split("/").pop();
         if (data.content) {
-          const editedPost = await Posts.findByIdAndUpdate(id, data)
+          const editedPost = await Posts.findByIdAndUpdate(id, {
+            name: data.name,
+            content: data.content,
+            tags: data.tags,
+            type: data.type,
+            image: data.image
+          })
           successHandle(res, editedPost);
         } else {
           errorHandle(res);
