@@ -13,7 +13,7 @@ mongoose
   .connect(DB)
   .then(() => console.log('MongoDB is ready!'))
 
-const requestLisener = async(req, res) => {
+const requestListener = async(req, res) => {
   let body = "";
   req.on('data', (chunk) => {
     body += chunk;
@@ -81,5 +81,5 @@ const requestLisener = async(req, res) => {
   }
 }
 
-const server = http.createServer(requestLisener)
+const server = http.createServer(requestListener)
 server.listen(process.env.PORT || 3005)
