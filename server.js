@@ -65,6 +65,9 @@ const requestListener = async(req, res) => {
             tags: data.tags,
             type: data.type,
             image: data.image
+          }, {
+            new: true,
+            runValidators: true
           })
           successHandle(res, editedPost);
         } else {
